@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Хмарне рішення розкладу для коледжів</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --accent: #a78bfa;
+      --bg: #f9fafb;
+      --text: #1f2937;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg), #e0e7ff);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="badge">Coming Soon</div>
+  <h1>Хмарне рішення розкладу для коледжів</h1>
+  <p>
+    Ми створюємо інноваційний веб-додаток для автоматизації розкладу занять у ЗФПО. 
+    Естетика, безпека, масштабованість — усе в одному інтерфейсі. 
+    Скоро ви зможете керувати розкладом легко, швидко і з wow-ефектом.
+  </p>
+</body>
+</html>
