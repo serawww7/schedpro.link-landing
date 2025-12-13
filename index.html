@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SchedPro: Хмарне рішення для розкладу коледжів</title>
+
+    <title>SchedPro: Комплексне управління розкладом та навчанням для ЗФПО/ЗВО</title>
+    <meta name="description" content="SchedPro — інтелектуальний хмарний сервіс для автоматизації розкладу, навчальних планів, навантаження та обліку успішності в коледжах та університетах (ЗФПО/ЗВО). Максимум ефективності, мінімум рутини." />
+    <meta name="keywords" content="розклад коледжів, автоматизація ЗВО, SchedPro, навчальні плани, педагогічне навантаження, семестрові відомості, хмарне рішення для освіти, управління розкладом" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -28,32 +34,31 @@
         body {
             min-height: 100vh;
             font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            /* Градієнт, більш насичений для кращого вигляду на мобільних пристроях */
             background: radial-gradient(circle at 20% 20%, var(--bg-start), var(--bg-end) 70%);
             color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow-x: hidden; /* Заборона горизонтального прокручування */
-            padding: 2rem 1rem; /* Зменшення горизонтального відступу на мобільних */
-            text-align: center; /* Центрування тексту за замовчуванням */
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
         /* Background blobs */
         .blob {
             position: absolute;
-            width: 300px; /* Зменшення розміру на мобільних */
+            width: 300px;
             height: 300px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: 50%;
-            filter: blur(100px); /* Зменшення розмиття */
+            filter: blur(100px);
             opacity: 0.35;
             animation: float 12s ease-in-out infinite;
-            z-index: -1; /* За blobs card */
+            z-index: -1;
         }
 
         .blob.one {
-            top: -50px; /* Підтягнули ближче */
+            top: -50px;
             left: -50px;
         }
 
@@ -65,7 +70,7 @@
 
         @keyframes float {
             0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(0, -30px); } /* Змінена анімація для мобільного */
+            50% { transform: translate(0, -30px); }
         }
 
         /* Glass card */
@@ -110,12 +115,27 @@
             font-weight: 700;
         }
 
-        p {
+        h2 {
             font-size: clamp(1rem, 4vw, 1.15rem);
             line-height: 1.6;
             opacity: 0.95;
             max-width: 500px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.2rem; /* Додано відступ для відокремлення від H1 */
+            font-weight: 400; /* Зробимо його легшим, ніж H1 */
+            color: var(--text);
+        }
+
+        .features h2 { /* Спеціальний стиль для H2 у розділі переваг */
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Стиль для колишнього параграфа, тепер H2 */
+        .intro-text {
+            display: none; /* Заховано старий P, щоб замінити його на H2 */
         }
 
         /* Розділ переваг */
@@ -159,7 +179,7 @@
             font-size: 0.9rem;
             color: #a5b4fc;
             opacity: 0.9;
-            margin-top: 1.5rem;
+            margin-top: 2.5rem; /* Збільшив відступ, щоб відділити від функцій */
         }
 
         .dot {
@@ -217,14 +237,14 @@
             Управління Освітою в Хмарі
         </h1>
 
-        <p>
-            Ми створюємо інтелектуальний хмарний сервіс для повної
-            автоматизації навчального процесу та розкладу у ЗФПО/ЗВО.
-            Забудьте про рутину і конфлікти.
-            Максимальна ефективність, мінімальний хаос.
-        </p>
+        <h2>
+            Автоматизація розкладу, навчальних планів та звітності для ЗФПО/ЗВО.
+            Забудьте про рутину і конфлікти. Максимальна ефективність, мінімальний хаос.
+        </h2>
 
         <div class="features">
+            <h3>Ключові особливості SchedPro</h3>
+
             <div class="feature-item">
                 <span class="feature-icon">🚀</span>
                 <div class="feature-text">
