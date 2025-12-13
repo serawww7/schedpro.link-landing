@@ -4,69 +4,164 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Хмарне рішення розкладу для коледжів</title>
+
   <style>
     :root {
-      --primary: #4f46e5;
-      --accent: #a78bfa;
-      --bg: #f9fafb;
-      --text: #1f2937;
+      --primary: #6366f1;
+      --accent: #22d3ee;
+      --glass: rgba(255, 255, 255, 0.12);
+      --border: rgba(255, 255, 255, 0.25);
+      --text: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, var(--bg), #e0e7ff);
+      min-height: 100vh;
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #1e1b4b, #020617 70%);
       color: var(--text);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      overflow: hidden;
       padding: 2rem;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
+    /* Background blobs */
+    .blob {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.35;
+      animation: float 12s ease-in-out infinite;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
+    .blob.one {
+      top: -100px;
+      left: -100px;
+    }
+
+    .blob.two {
+      bottom: -120px;
+      right: -120px;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+
+    /* Glass card */
+    .card {
+      position: relative;
+      max-width: 720px;
+      width: 100%;
+      padding: 3rem 3rem 3.5rem;
+      border-radius: 24px;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.6),
+        inset 0 0 0 1px rgba(255,255,255,0.05);
+      animation: cardFloat 6s ease-in-out infinite;
+      text-align: center;
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .badge {
-      background: var(--accent);
-      color: white;
-      padding: 0.5rem 1rem;
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       border-radius: 999px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      animation: pulse 2s infinite;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #020617;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 25px rgba(99,102,241,0.6);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin: 0 0 1.2rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      opacity: 0.9;
+      max-width: 620px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: #a5b4fc;
+      opacity: 0.9;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #22d3ee;
+      box-shadow: 0 0 12px #22d3ee;
+      animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.05); opacity: 0.8; }
+      50% { transform: scale(1.4); opacity: 0.6; }
       100% { transform: scale(1); opacity: 1; }
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      p { font-size: 1rem; }
+      .card {
+        padding: 2.2rem 1.8rem 2.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="badge">Coming Soon</div>
-  <h1>Хмарне рішення розкладу для коледжів</h1>
-  <p>
-    Ми створюємо інноваційний веб-додаток для автоматизації розкладу занять у ЗФПО. 
-    Естетика, безпека, масштабованість — усе в одному інтерфейсі. 
-    Скоро ви зможете керувати розкладом легко, швидко і з wow-ефектом.
-  </p>
+
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+
+  <main class="card">
+    <div class="badge">Coming Soon</div>
+
+    <h1>Хмарне рішення розкладу<br>для коледжів</h1>
+
+    <p>
+      Ми створюємо інтелектуальний веб-сервіс для автоматизації
+      розкладу занять у ЗФПО. Менше хаосу, більше ясності.
+      Сучасна архітектура, безпека та UX, який хочеться відкрити знову.
+    </p>
+
+    <div class="status">
+      <div class="dot"></div>
+      Продукт у активній розробці
+    </div>
+  </main>
+
 </body>
 </html>
