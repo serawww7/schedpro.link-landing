@@ -1,167 +1,254 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Хмарне рішення розкладу для коледжів</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SyllabusPro: Хмарне рішення для розкладу коледжів</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary: #6366f1;
-      --accent: #22d3ee;
-      --glass: rgba(255, 255, 255, 0.12);
-      --border: rgba(255, 255, 255, 0.25);
-      --text: #e5e7eb;
-    }
+    <style>
+        :root {
+            --primary: #6366f1; /* Indigo 500 */
+            --accent: #22d3ee;  /* Cyan 400 */
+            --bg-start: #1e1b4b; /* Темно-фіолетовий */
+            --bg-end: #020617; /* Майже чорний */
+            --glass: rgba(255, 255, 255, 0.12);
+            --border: rgba(255, 255, 255, 0.25);
+            --text: #e5e7eb; /* Світло-сірий */
+            --dark-text: #020617;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        /* Скидання стилів та базові налаштування */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-      background: radial-gradient(circle at 20% 20%, #1e1b4b, #020617 70%);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 2rem;
-    }
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            /* Градієнт, більш насичений для кращого вигляду на мобільних пристроях */
+            background: radial-gradient(circle at 20% 20%, var(--bg-start), var(--bg-end) 70%);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden; /* Заборона горизонтального прокручування */
+            padding: 2rem 1rem; /* Зменшення горизонтального відступу на мобільних */
+            text-align: center; /* Центрування тексту за замовчуванням */
+        }
 
-    /* Background blobs */
-    .blob {
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.35;
-      animation: float 12s ease-in-out infinite;
-    }
+        /* Background blobs */
+        .blob {
+            position: absolute;
+            width: 300px; /* Зменшення розміру на мобільних */
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            filter: blur(100px); /* Зменшення розмиття */
+            opacity: 0.35;
+            animation: float 12s ease-in-out infinite;
+            z-index: -1; /* За blobs card */
+        }
 
-    .blob.one {
-      top: -100px;
-      left: -100px;
-    }
+        .blob.one {
+            top: -50px; /* Підтягнули ближче */
+            left: -50px;
+        }
 
-    .blob.two {
-      bottom: -120px;
-      right: -120px;
-      animation-delay: 4s;
-    }
+        .blob.two {
+            bottom: -70px;
+            right: -70px;
+            animation-delay: 4s;
+        }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-40px); }
-    }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(0, -30px); } /* Змінена анімація для мобільного */
+        }
 
-    /* Glass card */
-    .card {
-      position: relative;
-      max-width: 720px;
-      width: 100%;
-      padding: 3rem 3rem 3.5rem;
-      border-radius: 24px;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.6),
-        inset 0 0 0 1px rgba(255,255,255,0.05);
-      animation: cardFloat 6s ease-in-out infinite;
-      text-align: center;
-    }
+        /* Glass card */
+        .card {
+            position: relative;
+            max-width: 600px; /* Зменшення максимальної ширини для кращого вигляду на мобільних */
+            width: 100%;
+            padding: 2.5rem 1.5rem 3rem; /* Адаптивні відступи */
+            border-radius: 20px; /* Трохи менший радіус */
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.5), /* Трохи менша тінь */
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+            animation: cardFloat 6s ease-in-out infinite;
+        }
 
-    @keyframes cardFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); } /* Менший рух для мобільного */
+        }
 
-    .badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #020617;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 0 25px rgba(99,102,241,0.6);
-    }
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem; /* Зменшення шрифту */
+            font-weight: 600;
+            letter-spacing: 0.1em; /* Збільшення інтервалу для кращої читабельності */
+            text-transform: uppercase;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: var(--dark-text);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 0 15px rgba(99,102,241,0.6);
+        }
 
-    h1 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      line-height: 1.2;
-      margin: 0 0 1.2rem;
-      font-weight: 700;
-    }
+        h1 {
+            font-size: clamp(1.8rem, 8vw, 2.5rem); /* Більш агресивна адаптація розміру */
+            line-height: 1.2;
+            margin: 0 0 1rem;
+            font-weight: 700;
+        }
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      opacity: 0.9;
-      max-width: 620px;
-      margin: 0 auto 2.2rem;
-    }
+        p {
+            font-size: clamp(1rem, 4vw, 1.15rem); /* Адаптація розміру параграфа */
+            line-height: 1.6; /* Краща читабельність на мобільних */
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
 
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.95rem;
-      color: #a5b4fc;
-      opacity: 0.9;
-    }
+        /* Додатковий розділ переваг для надання більшої цінності */
+        .features {
+            text-align: left;
+            margin: 2rem 0;
+            padding: 0 1rem;
+        }
 
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #22d3ee;
-      box-shadow: 0 0 12px #22d3ee;
-      animation: pulse 1.8s infinite;
-    }
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            gap: 10px;
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.6; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+        .feature-icon {
+            font-size: 1.4rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
 
-    @media (max-width: 600px) {
-      .card {
-        padding: 2.2rem 1.8rem 2.5rem;
-      }
-    }
-  </style>
+        .feature-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .feature-text strong {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        /* Статус розробки */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem; /* Зменшення проміжку */
+            font-size: 0.9rem;
+            color: #a5b4fc;
+            opacity: 0.9;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 8px; /* Менший індикатор */
+            height: 8px;
+            border-radius: 50%;
+            background: #22d3ee;
+            box-shadow: 0 0 10px #22d3ee;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Медіа-запити для планшетів та десктопів */
+        @media (min-width: 601px) {
+            .card {
+                padding: 3rem 3rem 3.5rem;
+            }
+            .badge {
+                font-size: 0.85rem;
+            }
+            .blob {
+                width: 420px;
+                height: 420px;
+                filter: blur(120px);
+            }
+            .blob.one {
+                top: -100px;
+                left: -100px;
+            }
+            .blob.two {
+                bottom: -120px;
+                right: -120px;
+            }
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-40px); }
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="blob one"></div>
+    <div class="blob two"></div>
 
-  <div class="blob one"></div>
-  <div class="blob two"></div>
+    <main class="card">
+        <div class="badge">SyllabusPro • Beta</div>
 
-  <main class="card">
-    <div class="badge">Coming Soon</div>
+        <h1>
+            SyllabusPro: Ваш<br>
+            Розумний Розклад в Хмарі
+        </h1>
 
-    <h1>Хмарне рішення розкладу<br>для коледжів</h1>
+        <p>
+            Ми створюємо **інтелектуальний хмарний сервіс** для повної
+            автоматизації розкладу занять у ЗФПО/ЗВО.
+            Забудьте про рутину і конфлікти.
+            Максимальна ефективність, мінімальний хаос.
+        </p>
 
-    <p>
-      Ми створюємо інтелектуальний веб-сервіс для автоматизації
-      розкладу занять у ЗФПО. Менше хаосу, більше ясності.
-      Сучасна архітектура, безпека та UX, який хочеться відкрити знову.
-    </p>
-
-    <div class="status">
-      <div class="dot"></div>
-      Продукт у активній розробці
-    </div>
-  </main>
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-icon">🚀</span>
+                <div class="feature-text">
+                    <strong>Автоматичне Генерування:</strong> Швидке створення оптимального розкладу з урахуванням усіх обмежень (аудиторії, викладачі, групи).
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📱</span>
+                <div class="feature-text">
+                    <strong>Мобільний Доступ (UX/UI):</strong> Сучасний інтерфейс для адміністрації, викладачів та студентів. Розклад завжди під рукою.
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔒</span>
+                <div class="feature-text">
+                    <strong>Надійність та Безпека:</strong> Хмарна архітектура, резервне копіювання та захист ваших даних.
+                </div>
+            </div>
+        </div>
+        <div class="status">
+            <div class="dot"></div>
+            Активна розробка. Запуск Q1 2026.
+        </div>
+    </main>
 
 </body>
 </html>
