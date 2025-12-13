@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SyllabusPro: Хмарне рішення для розкладу коледжів</title>
+    <title>SchedPro: Хмарне рішення для розкладу коледжів</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
@@ -71,30 +71,30 @@
         /* Glass card */
         .card {
             position: relative;
-            max-width: 600px; /* Зменшення максимальної ширини для кращого вигляду на мобільних */
+            max-width: 600px;
             width: 100%;
-            padding: 2.5rem 1.5rem 3rem; /* Адаптивні відступи */
-            border-radius: 20px; /* Трохи менший радіус */
+            padding: 2.5rem 1.5rem 3rem;
+            border-radius: 20px;
             background: var(--glass);
             backdrop-filter: blur(15px);
             border: 1px solid var(--border);
             box-shadow:
-                0 15px 40px rgba(0,0,0,0.5), /* Трохи менша тінь */
+                0 15px 40px rgba(0,0,0,0.5),
                 inset 0 0 0 1px rgba(255,255,255,0.05);
             animation: cardFloat 6s ease-in-out infinite;
         }
 
         @keyframes cardFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); } /* Менший рух для мобільного */
+            50% { transform: translateY(-8px); }
         }
 
         .badge {
             display: inline-block;
             padding: 0.4rem 1rem;
-            font-size: 0.75rem; /* Зменшення шрифту */
+            font-size: 0.75rem;
             font-weight: 600;
-            letter-spacing: 0.1em; /* Збільшення інтервалу для кращої читабельності */
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             border-radius: 999px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -104,21 +104,21 @@
         }
 
         h1 {
-            font-size: clamp(1.8rem, 8vw, 2.5rem); /* Більш агресивна адаптація розміру */
+            font-size: clamp(1.8rem, 8vw, 2.5rem);
             line-height: 1.2;
             margin: 0 0 1rem;
             font-weight: 700;
         }
 
         p {
-            font-size: clamp(1rem, 4vw, 1.15rem); /* Адаптація розміру параграфа */
-            line-height: 1.6; /* Краща читабельність на мобільних */
+            font-size: clamp(1rem, 4vw, 1.15rem);
+            line-height: 1.6;
             opacity: 0.95;
             max-width: 500px;
             margin: 0 auto 2rem;
         }
 
-        /* Додатковий розділ переваг для надання більшої цінності */
+        /* Розділ переваг */
         .features {
             text-align: left;
             margin: 2rem 0;
@@ -155,7 +155,7 @@
         .status {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem; /* Зменшення проміжку */
+            gap: 0.5rem;
             font-size: 0.9rem;
             color: #a5b4fc;
             opacity: 0.9;
@@ -163,7 +163,7 @@
         }
 
         .dot {
-            width: 8px; /* Менший індикатор */
+            width: 8px;
             height: 8px;
             border-radius: 50%;
             background: #22d3ee;
@@ -177,7 +177,7 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Медіа-запити для планшетів та десктопів */
+        /* Медіа-запити для планшетів та десктопів (залишено без змін) */
         @media (min-width: 601px) {
             .card {
                 padding: 3rem 3rem 3.5rem;
@@ -210,16 +210,16 @@
     <div class="blob two"></div>
 
     <main class="card">
-        <div class="badge">SyllabusPro • Beta</div>
+        <div class="badge">SchedPro • Alpha</div>
 
         <h1>
-            SyllabusPro: Ваш<br>
-            Розумний Розклад в Хмарі
+            SchedPro: Комплексне<br>
+            Управління Освітою в Хмарі
         </h1>
 
         <p>
-            Ми створюємо **інтелектуальний хмарний сервіс** для повної
-            автоматизації розкладу занять у ЗФПО/ЗВО.
+            Ми створюємо інтелектуальний хмарний сервіс для повної
+            автоматизації **навчального процесу та розкладу** у ЗФПО/ЗВО.
             Забудьте про рутину і конфлікти.
             Максимальна ефективність, мінімальний хаос.
         </p>
@@ -228,7 +228,19 @@
             <div class="feature-item">
                 <span class="feature-icon">🚀</span>
                 <div class="feature-text">
-                    <strong>Автоматичне Генерування:</strong> Швидке створення оптимального розкладу з урахуванням усіх обмежень (аудиторії, викладачі, групи).
+                    <strong>Автоматичне Генерування Розкладу:</strong> Швидке створення оптимального розкладу з урахуванням усіх обмежень (аудиторії, викладачі, групи).
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📑</span>
+                <div class="feature-text">
+                    <strong>Навчальні Плани та Навантаження:</strong> Цифрове формування та контроль навчальних планів, розрахунок та розподіл педагогічного навантаження.
+                </div>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">📊</span>
+                <div class="feature-text">
+                    <strong>Семестрові/Річні Відомості:</strong> Автоматизований облік успішності, генерація відомостей та звітів (наступний етап розробки).
                 </div>
             </div>
             <div class="feature-item">
@@ -244,6 +256,7 @@
                 </div>
             </div>
         </div>
+
         <div class="status">
             <div class="dot"></div>
             Активна розробка. Запуск Q1 2026.
