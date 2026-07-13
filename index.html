@@ -13,17 +13,12 @@ content="розклад занять коледж, автоматизація к
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon">
     <link rel="canonical" href="https://schedpro.link">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-    </noscript>
+    
 <meta property="og:type" content="website">
 <meta property="og:title" content="SchedPro — автоматизація розкладу для коледжів">
 <meta property="og:description" content="Система управління розкладом, навчальними планами та педагогічним навантаженням для коледжів України.">
 <meta property="og:url" content="https://schedpro.link/">
-<meta property="og:image" content="https://schedpro.link/assets/preview.jpg">
+<meta property="og:image" content="https://schedpro.link/assets/preview.webp">
     <link rel="canonical" href="https://schedpro.link">
     <script type="application/ld+json">
 {
@@ -37,6 +32,27 @@ content="розклад занять коледж, автоматизація к
 }
 </script>
     <style>
+       @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/Inter-Regular.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/Inter-Bold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('assets/Inter-Bold.woff2') format('woff2');
+}
         :root {
             --primary: #6366f1; /* Indigo 500 */
             --accent: #22d3ee;  /* Cyan 400 */
@@ -400,15 +416,16 @@ text-align:center;
     <div class="feature-text">
         <strong>Розклад занять</strong><br>
 
-        <img
-        src="assets/schedule.webp"
-        alt="Розклад занять"
-        style="
-        width:100%;
-        max-width:500px;
-        margin:10px 0;
-        border-radius:12px;
-        ">
+       <img
+src="assets/schedule.webp"
+alt="Розклад занять"
+loading="lazy"
+style="
+width:100%;
+max-width:500px;
+margin:10px 0;
+border-radius:12px;
+">
 
         Актуальний розклад для студентів і викладачів.
     </div>
@@ -419,15 +436,16 @@ text-align:center;
     <div class="feature-text">
         <strong>Навчальні плани</strong><br>
 
-        <img
-        src="assets/plans.webp"
-        alt="Навчальні плани"
-        style="
-        width:100%;
-        max-width:500px;
-        margin:10px 0;
-        border-radius:12px;
-        ">
+     <img
+src="assets/plans.webp"
+alt="Навчальні плани"
+loading="lazy"
+style="
+width:100%;
+max-width:500px;
+margin:10px 0;
+border-radius:12px;
+">
 
         Централізоване ведення навчальної документації.
     </div>
@@ -438,15 +456,16 @@ text-align:center;
     <div class="feature-text">
         <strong>Педагогічне навантаження</strong><br>
 
-        <img
-        src="assets/workload.webp"
-        alt="Педагогічне навантаження"
-        style="
-        width:100%;
-        max-width:500px;
-        margin:10px 0;
-        border-radius:12px;
-        ">
+  <img
+src="assets/workload.webp"
+alt="Педагогічне навантаження"
+loading="lazy"
+style="
+width:100%;
+max-width:500px;
+margin:10px 0;
+border-radius:12px;
+">
 
         Автоматизований облік годин викладачів.
     </div>
