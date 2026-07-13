@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Кажемо роботам взагалі не індексувати цю помилку -->
+    <meta name="robots" content="noindex, follow">
+    
+    <title>Сторінку не знайдено — 404 Помилка</title>
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --accent: #22d3ee;
+            --bg-start: #1e1b4b;
+            --bg-end: #020617;
+            --glass: rgba(255, 255, 255, 0.12);
+            --border: rgba(255, 255, 255, 0.25);
+            --text: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: radial-gradient(circle at 50% 50%, var(--bg-start), var(--bg-end) 70%);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .error-container {
+            max-width: 500px;
+            padding: 3rem 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #93a3b5;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #020617;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Упс! Сторінку не знайдено</h2>
+        <p>Схоже, цієї адреси більше не існує, або вона була перенесена під час оновлення системи SchedPro.</p>
+        <a href="https://schedpro.link/" class="btn" title="Повернутися на головну сторінку SchedPro">На головну сторінку</a>
+    </div>
+
+</body>
+</html>
